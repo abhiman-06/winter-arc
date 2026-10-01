@@ -1,0 +1,14 @@
+{
+  "name": "winter-arc",
+  "version": "1.0.0",
+  "description": "Track habits, tasks and 1-year goals through your winter arc.",
+  "private": true,
+  "scripts": {
+    "start": "npx --yes http-server . -p 4173 -c-1 -o",
+    "build": "node tools/build.js",
+    "icons": "node tools/make-icons.js",
+    "test": "node tools/test-store.js"
+  },
+  "keywords": ["habits", "tracker", "goals", "pwa"],
+  "license": "MIT"
+}
