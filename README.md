@@ -1,33 +1,65 @@
 # Winter Arc
 
+**🔗 Live app: [abhiman-06.github.io/winter-arc](https://abhiman-06.github.io/winter-arc/)**
+
 A dark, offline-first tracker for a **one-year arc**: daily habits on a month grid,
 a weekly task board with a mindset tracker, 1-year goals across ten areas of life,
 and an insights page that shows whether you're actually holding the line.
 
-No accounts, no server, no build step. Everything lives in your browser.
+No accounts, no sign-up, no server to run. Everything lives in your own browser.
 
 ---
 
-## Three ways to run it
+## If someone sent you this link
 
-### 1. As a website on your PC
+Just open **[abhiman-06.github.io/winter-arc](https://abhiman-06.github.io/winter-arc/)**
+— that's it, the app is right there. A few things worth knowing:
+
+- **Your data is separate from theirs.** Nothing is shared between people who open
+  this link — what you tick is stored only in your own browser, on your own device.
+- **Install it as a real app** (recommended): open the link in Chrome or Edge, then
+  click the **install icon** in the address bar (or ⋯ menu → *Apps* → *Install this
+  site as an app*). You get your own window, your own icon, and it works offline.
+- Works on your phone too — open the link there and use *Add to Home Screen*.
+- **Back up your progress** from time to time: gear icon (top right) → **Export
+  backup**. See [Your data](#your-data) below for why that matters.
+
+Everything past this point is for whoever is running or changing the project.
+
+---
+
+## Four ways to run it
+
+### 1. Just open the live link
+**[abhiman-06.github.io/winter-arc](https://abhiman-06.github.io/winter-arc/)** —
+nothing to install, works on any device with a browser. This is what to send people.
+
+### 2. As a website on your own PC
 Double-click **`start.cmd`** — it starts a local server and opens
 <http://localhost:4173>. (Or `npm start` if you prefer a terminal.)
 
-### 2. As an installed app
-Run it as above, then in Chrome or Edge click the **install icon** in the address
-bar (or ⋯ → *Apps* → *Install this site as an app*). It gets its own window, its
-own icon, and works offline.
+### 3. As an installed app
+From the live link or from `localhost:4173`, click the **install icon** in Chrome
+or Edge's address bar (or ⋯ → *Apps* → *Install this site as an app*). It gets its
+own window, its own icon, and works offline.
 
-### 3. As one file you can email to a friend
+### 4. As one file you can send directly — no link, no internet needed
 ```
 npm run build
 ```
 This writes **`dist/winter-arc.html`** — a single ~125 KB file with all the CSS,
 JavaScript and icons inlined. Send it over WhatsApp, email, a USB stick, anything.
-Your friend double-clicks it and the app runs. No install, no internet, no Node.
+Whoever gets it double-clicks the file and the app runs — no install, no internet,
+no Node, no GitHub. Useful if your friend has spotty internet or you'd rather not
+rely on a link staying up.
 
-> Their data is theirs — a copy of the file starts empty, it doesn't carry yours.
+> ⚠️ **Each of these four is separate storage.** The live link, `localhost:4173`,
+> and a `dist/winter-arc.html` file each keep their own data — ticking a habit in
+> one won't show up in another. Pick one and stick with it; use **Export/Import
+> backup** (below) to move progress between them.
+
+> Whoever opens any of these starts with an empty tracker — a copy never carries
+> *your* data with it.
 
 ---
 
@@ -115,3 +147,18 @@ under colour-blindness. If you swap them, keep that in mind.
 
 After editing any file, re-run `npm run build` to refresh the single-file copy, and
 bump `CACHE` in `sw.js` so installed copies pick up the change.
+
+### Updating the live site
+
+The live link is served straight from this repo's `main` branch via GitHub Pages.
+To push a change live:
+
+```
+git add -A
+git commit -m "describe the change"
+git push
+```
+
+GitHub rebuilds the page automatically — usually live within a minute. People who
+already installed it as an app get the update next time they open it (the service
+worker refreshes its cache in the background).
